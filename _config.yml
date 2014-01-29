@@ -1,0 +1,10 @@
+pygments: true
+permalink: /post/:title
+markdown: redcarpet
+exclude: ['Gemfile','Gemfile.lock','Rakefile','.git']
+paginate: 5
+name: "Paul Liljenbergs Blog"
+description: Tyler rants about things
+url: http://localhost:4000
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]

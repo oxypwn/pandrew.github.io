@@ -1,0 +1,10 @@
+_posts/*
+_sass/*
+_layouts/*
+_plugins/*
+_includes/*
+_site/*
+.DS_Store
+.sass-cache/*
+css/*
+_cache/*
