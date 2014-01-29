@@ -16,7 +16,7 @@ as a tool to document the progress for this project.&lt;/p&gt;
 I thought it was time for a change and give the installation system for archlinux a new repo of its own. This will make it easier to maintain fixes and not mix these with the other installation systems.&lt;/p&gt;
 
 &lt;p&gt;Last weeks updates has mostly been focused on updating documentation for the new repo. Besides documenting the profiles; there have also been some code review as it was quite  a while since
-I installed archlinux using this system. The documentaion should also be more easily read using &lt;a href=&quot;http://pandrew.viewdocs.io/arks&quot;&gt;viewdocs.io&lt;/a&gt; and you can read the docs &lt;a href=&quot;http://progrium.viewdocs.io/viewdocs&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+I installed archlinux using this system. The documentaion should also be more easily read using &lt;a href=&quot;http://progrium.viewdocs.io/viewdocs&quot;&gt;viewdocs.io&lt;/a&gt; and you can read the docs &lt;a href=&quot;http://pandrew.viewdocs.io/arks&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;There are two new features to implement in Arks for this course:&lt;/p&gt;
 
