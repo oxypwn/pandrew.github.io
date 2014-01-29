@@ -43,6 +43,39 @@ for this project.&lt;/p&gt;
     
       
         <item>
+          <title>Final updates and conclusion for this course</title>
+          <description>&lt;p&gt;This update is more a summary of the status of Arks - the unattended installation framework for Archlinux&lt;/p&gt;
+
+&lt;p&gt;So far the following new features have been implemented and is working in Arks:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  Progrium/keychain.io support&lt;/li&gt;
+&lt;li&gt;  Email one-time passwords.&lt;/li&gt;
+&lt;li&gt;  Puppet provisioning.&lt;/li&gt;
+&lt;li&gt;  Notify your iPhone when installation is complete.&lt;/li&gt;
+&lt;li&gt;  Notify via email when an error occur.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Besides this Arks has great error handling letting the user besides being notified when it has an error letting the user fix the problem right there in the middle of the installation. You don&amp;#39;t have to start over. All nodes and users have their own profiles.  That way you can specify all users for one node and all users can have individual settings.  To help installation Arks tries to follow Beginners&amp;#39; Guide. Arks installs a node below one minute and the time Arks spend is dependant on how much you cram in your machine.&lt;/p&gt;
+
+&lt;h1 id=&quot;toc_0&quot;&gt;Upcoming features&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  Efi support.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;toc_1&quot;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;These weeks I have been focusing on Arks and it has been intense.  Alongside Arks I have been experimenting with Apache Mesos and Marathon; diving into more advanced scripting techniques for installation. I really enjoy reading peoples code and this have helped me writing better code myself. Its not only about writing code, but all the different ways one simple application can be written just for the purpose of doing one simple thing. &lt;/p&gt;
+</description>
+          <pubDate>Sun, 19 Jan 2014 00:00:00 +0100</pubDate>
+          <link>http://localhost:4000//post/final-updates-and-conclusion-for-this-course</link>
+          <guid isPermaLink="true">http://localhost:4000//post/final-updates-and-conclusion-for-this-course</guid>
+        </item>
+      
+    
+      
+        <item>
           <title>Control Arks via puppet</title>
           <description>&lt;p&gt;In this status update iv&amp;#39;e taken a look at puppet/chef integration. The first thing to understand is that both puppet and chef is in a high development state as both packages are only available in aur (the user repository for archlinux). I had no luck using the omnibus installer for chef as it cant be installed unattended from aur with packer. This leaves us to puppet.&lt;/p&gt;
 
