@@ -111,6 +111,39 @@ for this project.</p>
   
       <article class="post">
           <div class="post-header">
+                <p class="date">Jan 13, 2014</p>
+                <h1><a href="/post/control-arks-via-puppet">Control Arks via puppet</a></h1>
+          </div>
+          <div class="post-body">
+            <p>In this status update iv&#39;e taken a look at puppet/chef integration. The first thing to understand is that both puppet and chef is in a high development state as both packages are only available in aur (the user repository for archlinux). I had no luck using the omnibus installer for chef as it cant be installed unattended from aur with packer. This leaves us to puppet.</p>
+
+<p>Client and server installation is no biggies. Installing from aur gives no errors and using puppetlabs repos in any ubuntu/debian works like a charm. The issues iv&#39;e encountered where that the server (puppetmaster) had issues accepting the certificate from client if they where behind nat. To make demo scenarios easier the puppetmaster was installed in the cloud and the clients was supposed to talk to the server behind nat. It seems that the server need to have fqdn for both clients and itself to work. I dont think i would see the same type of error if every client had its own accessible domain. Putting the puppetmaster within the same net was more successfull. Cleaning up the old certs for client and server and the server recognices the certificate request.</p>
+
+<p>Next step is creating a function that does something like this...</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">if PUPPET_SERVER is set
+    install puppet
+    if PUPPET_CONF is set
+        curl PUPPET_CONF to /etc/puppet/puppet.conf
+    else
+        inject PUPPET_SERVER into /etc/puppet/puppet.conf
+    fi
+    start puppet agent on boot
+fi
+</code></pre></div>
+<p>Todo:</p>
+
+<ul>
+<li>Build function</li>
+<li>Test integration of server/client behind nat.</li>
+</ul>
+
+          </div>
+      </article>
+  
+
+  
+      <article class="post">
+          <div class="post-header">
                 <p class="date">Jan 03, 2014</p>
                 <h1><a href="/post/arks-credentials-via-email">Arks: Credentials via email</a></h1>
           </div>

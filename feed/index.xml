@@ -43,6 +43,37 @@ for this project.&lt;/p&gt;
     
       
         <item>
+          <title>Control Arks via puppet</title>
+          <description>&lt;p&gt;In this status update iv&amp;#39;e taken a look at puppet/chef integration. The first thing to understand is that both puppet and chef is in a high development state as both packages are only available in aur (the user repository for archlinux). I had no luck using the omnibus installer for chef as it cant be installed unattended from aur with packer. This leaves us to puppet.&lt;/p&gt;
+
+&lt;p&gt;Client and server installation is no biggies. Installing from aur gives no errors and using puppetlabs repos in any ubuntu/debian works like a charm. The issues iv&amp;#39;e encountered where that the server (puppetmaster) had issues accepting the certificate from client if they where behind nat. To make demo scenarios easier the puppetmaster was installed in the cloud and the clients was supposed to talk to the server behind nat. It seems that the server need to have fqdn for both clients and itself to work. I dont think i would see the same type of error if every client had its own accessible domain. Putting the puppetmaster within the same net was more successfull. Cleaning up the old certs for client and server and the server recognices the certificate request.&lt;/p&gt;
+
+&lt;p&gt;Next step is creating a function that does something like this...&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;if PUPPET_SERVER is set
+    install puppet
+    if PUPPET_CONF is set
+        curl PUPPET_CONF to /etc/puppet/puppet.conf
+    else
+        inject PUPPET_SERVER into /etc/puppet/puppet.conf
+    fi
+    start puppet agent on boot
+fi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Todo:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Build function&lt;/li&gt;
+&lt;li&gt;Test integration of server/client behind nat.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+          <pubDate>Mon, 13 Jan 2014 00:00:00 +0100</pubDate>
+          <link>http://localhost:4000//post/control-arks-via-puppet</link>
+          <guid isPermaLink="true">http://localhost:4000//post/control-arks-via-puppet</guid>
+        </item>
+      
+    
+      
+        <item>
           <title>Arks: Credentials via email</title>
           <description>&lt;p&gt;This update of Arks include a couple of bugs in the &lt;code&gt;user.sh&lt;/code&gt; that affected multiple user logins. I&amp;#39;ve also added a new function to handle adding multiple groups.
 Now when we set &lt;code&gt;ADDTOGROUPS=&amp;quot;users,sudo&amp;quot;&lt;/code&gt;; the function will look at /etc/group and add any non existent groups. &lt;/p&gt;
