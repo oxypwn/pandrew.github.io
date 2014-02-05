@@ -74,6 +74,44 @@
   
       <article class="post">
           <div class="post-header">
+                <p class="date">Feb 05, 2014</p>
+                <h1><a href="/post/enforcer">Enforcer</a></h1>
+          </div>
+          <div class="post-body">
+            <p>It&#39;s time to tell you all what ive been working on for the last couple of months. Long before i started at Nackademin in Stockholm ive been looking at methods for installing and manage snapshots of both virtual and pysical machines. I needed to have a method for breaking an OS and being able to reinstall or get back to a certain state. I actually started this journey using clonezilla but this was a far from ideal solution for this. Next step is kickstarting where you give all the necessary options to the installer so it can install to a state without a user have to intervene. Next step is to add a provisioning tool. The result is something like:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">Install machine using a kickstart -&gt; What should the machine do when it&#39;s installed? (provisioning)
+</code></pre></div>
+<p>The two components is not easy to manage so i built a web application to manage kickstart-files for most systems. The app uses ipxe compatible scripts so any machine that ipxe can boot and install so can Enforcer. Normal operation in a network is; you enter a mac address for a machine and what os it should install. This becomes the profile for that machine. A profile can be as small as two settings; the mac and the template name. All clients that should be installed needs to be booted via network. For the machine to actually install you have to activate the profile. When the machine have retrieved the profile Enforcer will deactivate the profile. An admin can reinstall a machine just by activating profiles and reboot the machines.</p>
+
+<h4 id="toc_0">What works?</h4>
+
+<ul>
+<li>  Applicatian and database is isolated by default.</li>
+<li>  http and tls support.</li>
+<li>  Insert template data into database.</li>
+<li>  Booting from templates.</li>
+</ul>
+
+<h4 id="toc_1">Upcoming features</h4>
+
+<ul>
+<li>  Authentication of some sort.</li>
+<li>  Edit templates from within app.</li>
+<li>  Support BMC (ipmi).</li>
+<li>  Search and tagging so you can activate groups of machines.</li>
+</ul>
+
+<h4 id="toc_2">Release</h4>
+
+<p>Backend will be open source. Frontend is not yet ready for release.</p>
+
+          </div>
+      </article>
+  
+
+  
+      <article class="post">
+          <div class="post-header">
                 <p class="date">Jan 19, 2014</p>
                 <h1><a href="/post/final-updates-and-conclusion-for-this-course">Final updates and conclusion for this course</a></h1>
           </div>

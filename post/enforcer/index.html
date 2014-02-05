@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Enforcer | Paul Liljenberg</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link rel="alternate" type="application/rss+xml" title="Paul Liljenbergs Blog" href="http://localhost:4000/feed/index.xml">
+  <link rel="shortcut icon" href="http://www.gravatar.com/avatar/b2a4628e8eb9c7a8134f68098567049f.png
+?s=16">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/mobile.css">
+  <link rel="stylesheet" href="/css/desktop.css" media="(min-width:40em)">
+  <link rel="stylesheet" href="/css/pygments.css">
+  <link rel="stylesheet" href="/css/font.css">
+  <script type="text/javascript" charset="utf-8" src="/js/matchmedia.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/js/picturefill.js"></script>
+</head>
+
+<body>
+<div class="wrapper">
+    <header>
+    <div class="container">
+        <div class="profile">
+            <div class="social">
+                <a href="http://twitter.com/paul_andrew">
+                    <div data-picture data-alt="Twitter">
+                        <div data-src="/img/twitter16.png"></div>
+                        <div data-src="/img/twitter32.png"     data-media="(-webkit-min-device-pixel-ratio: 2)"></div>
+                        <noscript><img src="/img/twitter16.png" alt="Twitter"></noscript>
+                    </div>
+                </a>
+                <a href="http://github.com/pandrew">
+                    <div data-picture data-alt="Github">
+                        <div data-src="/img/octocat16.png"></div>
+                        <div data-src="/img/octocat32.png"     data-media="(-webkit-min-device-pixel-ratio: 2)"></div>
+                        <noscript><img src="/img/octocat16.png" alt="Github"></noscript>
+                    </div>
+                </a>
+            </div>
+            <!--           <img src="http://www.gravatar.com/avatar/b2a4628e8eb9c7a8134f68098567049f.png
+?s=54" alt="avatar" class="avatar" />
+            <img src="http://www.gravatar.com/avatar/b2a4628e8eb9c7a8134f68098567049f.png
+?s=108" alt="avatar" class="avatar-large" />
+         -->
+        </div>
+        <h5 class="logo"><a href="http://borntobebash.zombieland.se">Paul Liljenberg</a></h5>
+        <nav>
+            <ul>
+                
+                    <li><a href="http://borntobebash.zombieland.se">Blog</a></li>
+                
+                
+                <li><a href="http://borntobebash.zombieland.se/about">About</a></li>
+                
+                
+                <li><a href="http://borntobebash.zombieland.se/projects">Projects</a></li>
+                
+            </ul>
+        </nav>
+        <div class="nav-slider">
+            <div class="nav-selection "></div>
+        </div>
+    </div>
+</header>
+
+    
+    <section id="main">
+        <article class="container">
+            <article class="post">
+                <div class="post-header">
+                    <p class="date">Feb 05, 2014</p>
+                    <h1>Enforcer</h1>
+                </div>
+                <div class="post-body">
+                    <p>It&#39;s time to tell you all what ive been working on for the last couple of months. Long before i started at Nackademin in Stockholm ive been looking at methods for installing and manage snapshots of both virtual and pysical machines. I needed to have a method for breaking an OS and being able to reinstall or get back to a certain state. I actually started this journey using clonezilla but this was a far from ideal solution for this. Next step is kickstarting where you give all the necessary options to the installer so it can install to a state without a user have to intervene. Next step is to add a provisioning tool. The result is something like:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">Install machine using a kickstart -&gt; What should the machine do when it&#39;s installed? (provisioning)
+</code></pre></div>
+<p>The two components is not easy to manage so i built a web application to manage kickstart-files for most systems. The app uses ipxe compatible scripts so any machine that ipxe can boot and install so can Enforcer. Normal operation in a network is; you enter a mac address for a machine and what os it should install. This becomes the profile for that machine. A profile can be as small as two settings; the mac and the template name. All clients that should be installed needs to be booted via network. For the machine to actually install you have to activate the profile. When the machine have retrieved the profile Enforcer will deactivate the profile. An admin can reinstall a machine just by activating profiles and reboot the machines.</p>
+
+<h4 id="toc_0">What works?</h4>
+
+<ul>
+<li>  Applicatian and database is isolated by default.</li>
+<li>  http and tls support.</li>
+<li>  Insert template data into database.</li>
+<li>  Booting from templates.</li>
+</ul>
+
+<h4 id="toc_1">Upcoming features</h4>
+
+<ul>
+<li>  Authentication of some sort.</li>
+<li>  Edit templates from within app.</li>
+<li>  Support BMC (ipmi).</li>
+<li>  Search and tagging so you can activate groups of machines.</li>
+</ul>
+
+<h4 id="toc_2">Release</h4>
+
+<p>Backend will be open source. Frontend is not yet ready for release.</p>
+
+                </div>
+            </article>
+        </article>
+    </section>
+    
+    <footer>
+    <nav class="container">
+        <ul>
+            <li>&copy; Paul Liljenberg 2013</li>
+        </ul>
+    </nav>
+</footer>
+
+</div>
+</body>
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-33073396-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+<script type="text/javascript" charset="utf-8">
+    document.onreadystatechange = function() {
+        if ( document.readyState == 'complete' ) {
+            var active = document.querySelector( 'header a.active' ).innerHTML.toLowerCase(),
+                links = document.querySelectorAll( 'header nav li a'),
+                selection = document.querySelector( 'header .nav-selection' ),
+                i, link;
+            for ( i = 0; i < links.length; i++ ) {
+                link = links[ i ];
+                console.log(link);
+                link.addEventListener( 'mouseover', function() {
+                    selection.className = 'nav-selection';
+                    selection.className = 'nav-selection ' + this.innerHTML.toLowerCase();
+                });
+                link.addEventListener( 'mouseout', function() {
+                    selection.className = 'nav-selection ' + active;
+                });
+            }
+        }
+    };
+</script>
+
+</html>
+

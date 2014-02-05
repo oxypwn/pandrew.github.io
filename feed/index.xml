@@ -8,6 +8,42 @@
     
       
         <item>
+          <title>Enforcer</title>
+          <description>&lt;p&gt;It&amp;#39;s time to tell you all what ive been working on for the last couple of months. Long before i started at Nackademin in Stockholm ive been looking at methods for installing and manage snapshots of both virtual and pysical machines. I needed to have a method for breaking an OS and being able to reinstall or get back to a certain state. I actually started this journey using clonezilla but this was a far from ideal solution for this. Next step is kickstarting where you give all the necessary options to the installer so it can install to a state without a user have to intervene. Next step is to add a provisioning tool. The result is something like:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;Install machine using a kickstart -&amp;gt; What should the machine do when it&amp;#39;s installed? (provisioning)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The two components is not easy to manage so i built a web application to manage kickstart-files for most systems. The app uses ipxe compatible scripts so any machine that ipxe can boot and install so can Enforcer. Normal operation in a network is; you enter a mac address for a machine and what os it should install. This becomes the profile for that machine. A profile can be as small as two settings; the mac and the template name. All clients that should be installed needs to be booted via network. For the machine to actually install you have to activate the profile. When the machine have retrieved the profile Enforcer will deactivate the profile. An admin can reinstall a machine just by activating profiles and reboot the machines.&lt;/p&gt;
+
+&lt;h4 id=&quot;toc_0&quot;&gt;What works?&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  Applicatian and database is isolated by default.&lt;/li&gt;
+&lt;li&gt;  http and tls support.&lt;/li&gt;
+&lt;li&gt;  Insert template data into database.&lt;/li&gt;
+&lt;li&gt;  Booting from templates.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;toc_1&quot;&gt;Upcoming features&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  Authentication of some sort.&lt;/li&gt;
+&lt;li&gt;  Edit templates from within app.&lt;/li&gt;
+&lt;li&gt;  Support BMC (ipmi).&lt;/li&gt;
+&lt;li&gt;  Search and tagging so you can activate groups of machines.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;toc_2&quot;&gt;Release&lt;/h4&gt;
+
+&lt;p&gt;Backend will be open source. Frontend is not yet ready for release.&lt;/p&gt;
+</description>
+          <pubDate>Wed, 05 Feb 2014 00:00:00 +0100</pubDate>
+          <link>http://localhost:4000//post/enforcer</link>
+          <guid isPermaLink="true">http://localhost:4000//post/enforcer</guid>
+        </item>
+      
+    
+      
+        <item>
           <title>Final updates and conclusion for this course</title>
           <description>&lt;p&gt;This update is more a summary of the status of Arks - the unattended installation framework for Archlinux&lt;/p&gt;
 
